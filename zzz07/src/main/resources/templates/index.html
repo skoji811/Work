@@ -5,12 +5,57 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>挨拶</h1>
-<p th:text="${msg}"></p>
-<form method="post" action="/">
-<input type="text" name="text1" th:value="${value}" />
-<input type="submit" value="click" />
+<h1>ユーザー一覧</h1>
+<form action="/" name="create" method="post">
+<table>
+<thead>
+	<tr>	
+	<th>#</th>
+	<th>name</th>
+	<th>age</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr th:each="user: ${users}">
+		<td th:text="${user['id']}"></td>
+		<td th:text="${user['name']}"></td>
+		<td th:text="${user['age']}"></td>
+	</tr>
+	</tbody>
+</table>
 </form>
+
+<h1>ユーザー編集</h1>
+<form action="/update" name="update" method="post">
+
+	<table>
+		<tr>
+		<th>ID</th>
+		<td><input type="text" name="id"></td>
+		</tr>
+		<tr>
+		<th>名前</th>
+		<td><input type="text" name="name">
+		</td>
+		<th>年齢</th>
+		<td><input type="text" name="age">
+		</td>		
+		</table>
+		<div class="btn_area_center"><input type="submit" value="登録" class="btn"></div>
+
+</form>
+
+<h1>ユーザー登録</h1>
+<form action="/update" name="update" method="post">
+	<table>
+		<tr>
+		<th>ID</th>
+		<td><input type="text" name="id"></td>
+		</tr>
+		
+		</table>
+		<div class="btn_area_center"><input type="submit" value="登録" class="btn"></div></form>
+
 
 </body>
 </html>
